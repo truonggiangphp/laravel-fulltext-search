@@ -20,14 +20,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a914ad24-40e2-4447-a97b-8d9489f8af5c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Indexable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Indexable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BaseGridQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BaseSearchQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GridQueryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Search/SublimeSearch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Searchable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SortByRelevance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-fulltext-search.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-fulltext-search.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/laravel-fulltext.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2016_11_04_152913_create_laravel_fulltext_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/IndexOne.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/UnindexOne.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FulltextServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Indexable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IndexedRecord.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Indexer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ModelObserver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Search.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SearchInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TermBuilder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AbstractTestCase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Fixtures/IndexableTestModel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Fixtures/TestModel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/IndexableTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/IndexerTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ModelObserverTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TermBuilderTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -57,7 +91,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598970463488</updated>
-      <workItem from="1598970464595" duration="831000" />
+      <workItem from="1598970464595" duration="915000" />
+      <workItem from="1598975547683" duration="404000" />
     </task>
     <servers />
   </component>
@@ -74,12 +109,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="538" y="264" width="604" height="490" key="find.popup" timestamp="1598971158233">
+    <state x="538" y="264" width="604" height="490" key="find.popup" timestamp="1598975721776">
       <screen x="0" y="23" width="1680" height="972" />
     </state>
-    <state x="538" y="264" width="604" height="490" key="find.popup/0.23.1680.972@0.23.1680.972" timestamp="1598971158233" />
+    <state x="538" y="264" width="604" height="490" key="find.popup/0.23.1680.972@0.23.1680.972" timestamp="1598975721776" />
     <state x="505" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1598971145056">
       <screen x="0" y="23" width="1680" height="972" />
     </state>
