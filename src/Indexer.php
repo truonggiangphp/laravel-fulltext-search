@@ -11,6 +11,10 @@ class Indexer
         $model->indexRecord();
     }
 
+    /**
+     * @param $class
+     * @param $id
+     */
     public function unIndexOneByClass($class, $id)
     {
         $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', $class);
@@ -19,6 +23,10 @@ class Indexer
         }
     }
 
+    /**
+     * @param $class
+     * @param $id
+     */
     public function indexOneByClass($class, $id)
     {
         $model = call_user_func([$class, 'find'], $id);
@@ -27,6 +35,9 @@ class Indexer
         }
     }
 
+    /**
+     * @param $class
+     */
     public function indexAllByClass($class)
     {
         $model = new $class();

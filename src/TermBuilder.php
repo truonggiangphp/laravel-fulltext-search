@@ -4,6 +4,10 @@ namespace Webike\Laravel\Fulltext;
 
 class TermBuilder
 {
+    /**
+     * @param $search
+     * @return mixed
+     */
     public static function terms($search)
     {
         $wildcards = config('laravel-fulltext.enable_wildcards');

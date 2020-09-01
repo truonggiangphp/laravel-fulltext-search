@@ -33,8 +33,13 @@ trait Indexable
         return $this->morphOne(IndexedRecord::class, 'indexable');
     }
 
+
     public function indexRecord()
     {
+        $isEnable = config('laravel-fulltext.enable_index_database');
+        if (!$isEnable) {
+            return;
+        }
         if (null === $this->indexedRecord) {
             $this->indexedRecord = new IndexedRecord();
             $this->indexedRecord->indexable()->associate($this);
@@ -70,7 +75,7 @@ trait Indexable
      */
     protected function indexDataIsRelation($column)
     {
-        return (int) strpos($column, '.') > 0;
+        return (int)strpos($column, '.') > 0;
     }
 
     /**

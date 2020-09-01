@@ -8,6 +8,10 @@ class IndexedRecord extends Model
 {
     protected $table = 'laravel_fulltext';
 
+    /**
+     * IndexedRecord constructor.
+     * @param array $attributes
+     */
     public function __construct(array $attributes = [])
     {
         $this->connection = config('laravel-fulltext.db_connection');
@@ -15,10 +19,14 @@ class IndexedRecord extends Model
         parent::__construct($attributes);
     }
 
+    /**
+     * @return mixed
+     */
     public function indexable()
     {
         return $this->morphTo();
     }
+
 
     public function updateIndex()
     {

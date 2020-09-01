@@ -24,4 +24,5 @@ return [
      */
     'exclude_feature_enabled' => false,
     'exclude_records_column_name' => 'default_column',
+    'enable_index_database' => false,
 ];
