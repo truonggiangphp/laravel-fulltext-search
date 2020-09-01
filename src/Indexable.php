@@ -36,7 +36,7 @@ trait Indexable
 
     public function indexRecord()
     {
-        $isEnable = config('laravel-fulltext.enable_index_database');
+        $isEnable = config('laravel-fulltext.enable_index_database', false);
         if (!$isEnable) {
             return;
         }

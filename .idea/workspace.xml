@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a914ad24-40e2-4447-a97b-8d9489f8af5c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/laravel-fulltext.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/laravel-fulltext.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Indexable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Indexable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IndexedRecord.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IndexedRecord.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Indexer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Indexer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TermBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TermBuilder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598970463488</updated>
-      <workItem from="1598970464595" duration="790000" />
+      <workItem from="1598970464595" duration="831000" />
     </task>
     <servers />
   </component>
