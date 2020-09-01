@@ -39,7 +39,7 @@ abstract class BaseSearchQuery extends BaseGridQuery
      * @return Builder
      * @throws \Exception
      */
-    public function search($searchStr)
+    public function search($searchStr): Builder
     {
         return $this->searcher()->search($this->searchStr = $searchStr);
     }
@@ -47,9 +47,10 @@ abstract class BaseSearchQuery extends BaseGridQuery
     /**
      * Return a searcher, the search query logic and algorithm.
      *
-     * @return mixed
+     * @return SublimeSearch
+     * @throws \Exception
      */
-    public function searcher()
+    public function searcher(): SublimeSearch
     {
         return new SublimeSearch(
             $this->query(),
@@ -64,7 +65,7 @@ abstract class BaseSearchQuery extends BaseGridQuery
      *
      * @return array
      */
-    protected function sortColumns()
+    protected function sortColumns(): array
     {
         return $this->columns();
     }
@@ -75,7 +76,7 @@ abstract class BaseSearchQuery extends BaseGridQuery
      * @param string $searchOperator
      * @return $this
      */
-    public function setSearchOperator($searchOperator)
+    public function setSearchOperator($searchOperator): self
     {
         $this->searchOperator = $searchOperator;
 
@@ -88,7 +89,7 @@ abstract class BaseSearchQuery extends BaseGridQuery
      * @param bool $sort
      * @return $this
      */
-    public function sort($sort = true)
+    public function sort($sort = true): BaseSearchQuery
     {
         return $this->sortByRelevance($sort);
     }
@@ -99,7 +100,7 @@ abstract class BaseSearchQuery extends BaseGridQuery
      * @param bool $sort
      * @return $this
      */
-    public function sortByRelevance($sort = true)
+    public function sortByRelevance($sort = true): self
     {
         $this->sort = $sort;
 
@@ -111,7 +112,7 @@ abstract class BaseSearchQuery extends BaseGridQuery
      *
      * @return boolean
      */
-    public function shouldSortByRelevance()
+    public function shouldSortByRelevance(): bool
     {
         return $this->sort;
     }
@@ -120,9 +121,7 @@ abstract class BaseSearchQuery extends BaseGridQuery
      * Apply sorting query by relevance to the search.
      * By default using mysql locate function.
      *
-     * @param Builder $query
-     * @param string $searchStr
-     * @return Builder
+     * @return void
      * @throws \Exception
      */
     public function applySortByRelevance()

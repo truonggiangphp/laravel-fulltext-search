@@ -2,6 +2,7 @@
 
 namespace Webike\Searchable\Search;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Webike\Searchable\BaseSearchQuery;
 
@@ -28,7 +29,7 @@ class SublimeSearch extends BaseSearchQuery
     /**
      * Construct.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param Builder $query
      * @param array $columns
      * @param bool $sort
      * @param string $searchOperator
@@ -47,7 +48,7 @@ class SublimeSearch extends BaseSearchQuery
      * @param string $columnKey
      * @return string|mixed
      */
-    public function getColumn($columnKey)
+    public function getColumn($columnKey): string
     {
         return $this->findColumn($this->columnsToCompare(), $columnKey);
     }
@@ -57,7 +58,7 @@ class SublimeSearch extends BaseSearchQuery
      *
      * @return array
      */
-    public function columnsToCompare()
+    public function columnsToCompare(): array
     {
         return $this->searchOperator === 'having' ? $this->columnKeys() : $this->columns();
     }
@@ -67,7 +68,7 @@ class SublimeSearch extends BaseSearchQuery
      *
      * @return array
      */
-    public function columnKeys()
+    public function columnKeys(): array
     {
         $columnKeys = [];
 
@@ -89,10 +90,10 @@ class SublimeSearch extends BaseSearchQuery
      * Apply search query.
      *
      * @param string|mixed $searchStr
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      * @throws \Exception
      */
-    public function search($searchStr)
+    public function search($searchStr): Builder
     {
         $columnsToCompare = $this->columnsToCompare();
         $conditions = [];
@@ -124,7 +125,7 @@ class SublimeSearch extends BaseSearchQuery
      * @param string|mixed $searchStr
      * @return string
      */
-    protected function parseSearchStr($searchStr)
+    protected function parseSearchStr($searchStr): string
     {
         $searchStr = preg_replace('/[^A-Za-z0-9]/', '', $searchStr);
 
@@ -136,7 +137,7 @@ class SublimeSearch extends BaseSearchQuery
      *
      * @return array
      */
-    public function columns()
+    public function columns(): array
     {
         return $this->columns;
     }

@@ -9,12 +9,16 @@ use Webike\Searchable\Search\SublimeSearch;
 
 trait Searchable
 {
+    /** @var array */
     protected static $allSearchableColumns = [];
 
+    /** @var bool */
     protected $searchableEnabled = true;
 
+    /** @var bool */
     protected $sortByRelevance = true;
 
+    /** @var SublimeSearch */
     protected $searchQuery;
 
     /**
@@ -22,7 +26,7 @@ trait Searchable
      *
      * @return array
      */
-    public function searchableColumns()
+    public function searchableColumns(): array
     {
         if (property_exists($this, 'searchableColumns')) {
             return $this->searchableColumns;
@@ -40,7 +44,7 @@ trait Searchable
      *
      * @return array
      */
-    public function sortableColumns()
+    public function sortableColumns(): array
     {
         if (property_exists($this, 'sortableColumns')) {
             return $this->sortableColumns;
@@ -59,7 +63,7 @@ trait Searchable
      * @param $table | null
      * @return array
      */
-    public static function getTableColumns($table = null)
+    public static function getTableColumns($table = null): array
     {
         $table = $table ?? (new static)->getTable();
 
@@ -77,7 +81,7 @@ trait Searchable
      * @param string $column
      * @return boolean
      */
-    public static function isColumnValid($column)
+    public static function isColumnValid($column): bool
     {
         $model = new static;
         $allColumns = array_merge($model->searchableColumns(), $model->sortableColumns());
@@ -102,7 +106,7 @@ trait Searchable
      * @param string $column
      * @return string|mixed
      */
-    public static function getSortableColumn($column)
+    public static function getSortableColumn($column): string
     {
         $model = new static;
         $allColumns = array_merge($model->searchableColumns(), $model->sortableColumns());
@@ -115,7 +119,7 @@ trait Searchable
      *
      * @return array
      */
-    public function searchableJoins()
+    public function searchableJoins(): array
     {
         if (property_exists($this, 'searchableJoins')) {
             return $this->searchableJoins;
@@ -147,7 +151,7 @@ trait Searchable
      *
      * @return mixed|SublimeSearch
      */
-    public function searchQuery()
+    public function searchQuery(): SublimeSearch
     {
         if ($this->searchQuery) {
             return $this->searchQuery;
@@ -166,7 +170,7 @@ trait Searchable
      * @param BaseSearchQuery $searchQuery
      * @return Searchable
      */
-    public function setSearchQuery($searchQuery)
+    public function setSearchQuery($searchQuery): self
     {
         $this->searchQuery = $searchQuery;
 
@@ -178,7 +182,7 @@ trait Searchable
      *
      * @return $this
      */
-    public function disableSearchable()
+    public function disableSearchable(): self
     {
         $this->searchableEnabled = false;
         return $this;
@@ -189,7 +193,7 @@ trait Searchable
      *
      * @return $this
      */
-    public function enableSearchable()
+    public function enableSearchable(): self
     {
         $this->searchableEnabled = true;
         return $this;
@@ -236,7 +240,7 @@ trait Searchable
      * @param boolean $sortByRelevance
      * @return $this
      */
-    public function searchableSortByRelevance($sortByRelevance = true)
+    public function searchableSortByRelevance($sortByRelevance = true): self
     {
         $this->sortByRelevance = $sortByRelevance;
 
@@ -250,7 +254,7 @@ trait Searchable
      *
      * @return bool
      */
-    public function shouldSortByRelevance()
+    public function shouldSortByRelevance(): bool
     {
         return $this->sortByRelevance;
     }
@@ -261,7 +265,7 @@ trait Searchable
      * @param array $config
      * @return  $this
      */
-    public function setSearchable($config)
+    public function setSearchable($config): self
     {
         $this->setSearchableColumns(array_get($config, 'columns'));
         $this->setSearchableJoins(array_get($config, 'joins'));
@@ -276,7 +280,7 @@ trait Searchable
      * @param array $columns
      * @return  $this
      */
-    public function setSearchableColumns($columns)
+    public function setSearchableColumns($columns): self
     {
         if (property_exists($this, 'searchableColumns')) {
             $this->searchableColumns = $columns ?? [];
@@ -295,7 +299,7 @@ trait Searchable
      * @param array $joins
      * @return  $this
      */
-    public function setSearchableJoins($joins)
+    public function setSearchableJoins($joins): self
     {
         if (property_exists($this, 'searchableJoins')) {
             $this->searchableJoins = $joins ?? [];
@@ -314,7 +318,7 @@ trait Searchable
      * @param array $columns
      * @return  $this
      */
-    public function setSortableColumns($columns)
+    public function setSortableColumns($columns): self
     {
         if (property_exists($this, 'sortableColumns')) {
             $this->sortableColumns = $columns ?? [];
@@ -333,7 +337,7 @@ trait Searchable
      * @param array $config
      * @return  $this
      */
-    public function addSearchable($config)
+    public function addSearchable($config): self
     {
         if ($columns = array_get($config, 'columns')) {
             $this->addSearchableColumns($columns);
@@ -356,7 +360,7 @@ trait Searchable
      * @param array $columns
      * @return  $this
      */
-    public function addSearchableColumns($columns)
+    public function addSearchableColumns($columns): self
     {
         if (property_exists($this, 'searchableColumns')) {
             $this->searchableColumns = array_merge($this->searchableColumns, $columns);
@@ -375,7 +379,7 @@ trait Searchable
      * @param array $joins
      * @return  $this
      */
-    public function addSearchableJoins($joins)
+    public function addSearchableJoins($joins): self
     {
         if (property_exists($this, 'searchableJoins')) {
             $this->searchableJoins = array_merge($this->searchableJoins, $joins);
@@ -394,7 +398,7 @@ trait Searchable
      * @param array $columns
      * @return  $this
      */
-    public function addSortableColumns($columns)
+    public function addSortableColumns($columns): self
     {
         if (property_exists($this, 'sortableColumns')) {
             $this->sortableColumns = array_merge($this->sortableColumns, $columns);

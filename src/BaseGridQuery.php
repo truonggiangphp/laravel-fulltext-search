@@ -19,8 +19,9 @@ abstract class BaseGridQuery
      * Return the initialized specific query. This contains the joins logic and condition that make the query specific.
      *
      * @return Builder
+     * @throws \Exception
      */
-    public function query()
+    public function query(): Builder
     {
         return $this->query ?? $this->query = $this->initQuery();
     }
@@ -32,7 +33,7 @@ abstract class BaseGridQuery
      *
      * @return Builder
      */
-    public function makeQuery()
+    public function makeQuery(): Builder
     {
         return $this->selectColumns();
     }
@@ -42,7 +43,7 @@ abstract class BaseGridQuery
      *
      * @return Builder
      */
-    public function selectColumns()
+    public function selectColumns(): Builder
     {
         return $this->query()->select($this->makeSelect($this->columns()));
     }
@@ -51,10 +52,10 @@ abstract class BaseGridQuery
      * Create an array of select parameters that can be passed in $query->select().
      * String indexed columns will be transformed to have an alias like "column_key as as actual_column".
      *
-     * @param  array|null $columns
+     * @param array|null $columns
      * @return array
      */
-    public function makeSelect(array $columns = null)
+    public function makeSelect(array $columns = null): array
     {
         $columns = $columns ?: $this->columns();
         $selects = [];
@@ -63,7 +64,7 @@ abstract class BaseGridQuery
             if (is_int($key)) {
                 $selects[] = $select;
             } else {
-                $selects[] = DB::raw($select.' as '.$key);
+                $selects[] = DB::raw($select . ' as ' . $key);
             }
         }
 
@@ -76,7 +77,7 @@ abstract class BaseGridQuery
      * @param Builder $query
      * @return  $this
      */
-    public function setQuery($query)
+    public function setQuery($query): self
     {
         $this->query = $query;
 
@@ -86,10 +87,10 @@ abstract class BaseGridQuery
     /**
      * Set the columns of this gridQuery instance of the grid to the given query's select clause.
      *
-     * @param  Builder $query
+     * @param Builder $query
      * @return Builder
      */
-    public function setSelectQuery($query)
+    public function setSelectQuery($query): Builder
     {
         return $query->select($this->makeSelect($this->columns()));
     }
@@ -97,10 +98,10 @@ abstract class BaseGridQuery
     /**
      * Get the actual column of the given column key.
      *
-     * @param  string $columnKey
+     * @param string $columnKey
      * @return string|mixed
      */
-    public function getColumn($columnKey)
+    public function getColumn($columnKey): string
     {
         return $this->findColumn($this->columns(), $columnKey);
     }
@@ -112,7 +113,7 @@ abstract class BaseGridQuery
      * @param string $columnKey
      * @return string
      */
-    public static function findColumn($columns, $columnKey)
+    public static function findColumn($columns, $columnKey): string
     {
         if (array_key_exists($columnKey, $columns)) {
             return $columns[$columnKey];
@@ -128,10 +129,10 @@ abstract class BaseGridQuery
     /**
      * Get the actual columns of the given column keys.
      *
-     * @param  array  $columnKeys
+     * @param array $columnKeys
      * @return array
      */
-    public function getColumns(array $columnKeys)
+    public function getColumns(array $columnKeys): array
     {
         $columns = [];
 
@@ -145,10 +146,10 @@ abstract class BaseGridQuery
     /**
      * Getter for column.
      *
-     * @param  string $columnKey
+     * @param string $columnKey
      * @return string|mixed
      */
-    public function __get($columnKey)
+    public function __get($columnKey): string
     {
         return $this->getColumn($columnKey);
     }
@@ -161,10 +162,10 @@ abstract class BaseGridQuery
      * @return $this
      * @throws \Exception
      */
-    public function __call($method, $parameters)
+    public function __call($method, $parameters): self
     {
         if (!$this->query) {
-            throw new \Exception("Property \$query is not set. Cannot call method {$method} on object of ".static::class.'.');
+            throw new \Exception("Property \$query is not set. Cannot call method {$method} on object of " . static::class . '.');
         }
 
         call_user_func_array([$this->query, $method], $parameters);
@@ -180,7 +181,7 @@ abstract class BaseGridQuery
      */
     public function initQuery()
     {
-        throw new \Exception('Please create self initQuery() method on '.get_class($this).'.');
+        throw new \Exception('Please create self initQuery() method on ' . get_class($this) . '.');
     }
 
     /**
@@ -195,7 +196,7 @@ abstract class BaseGridQuery
      *
      * @return static
      */
-    public static function make()
+    public static function make(): self
     {
         return new static;
     }
